@@ -1,0 +1,20 @@
+{% extends '../blog/base.html' %}
+{% load comment_block %}
+
+{% block title %}
+友链界面
+{% endblock %}
+
+{% block main %}
+<ul>
+    {% if link_list %}
+    {% for link in link_list %}
+    <li>{{ link.title }} - <a href="{{ link.href }}">{{ link.href }}</a></li>
+    {% endfor %}
+    {% else %}
+    <li>暂无友链</li>
+    {% endif %}
+</ul>
+<hr />
+{% comment_block request.path %}
+{% endblock %}

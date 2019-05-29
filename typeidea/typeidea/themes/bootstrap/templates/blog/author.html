@@ -1,0 +1,13 @@
+{% extends './base.html' %}
+
+{% block title %}
+作者页面
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    {% if author %}
+    <span>作者: {{ author.username }}</span>
+    {% endif %}
+</div>
+{% endblock %}

@@ -29,9 +29,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'typeidea',
     'blog',
     'config',
     'comment',
+
+    # xadmin插件app
+    'xadmin',
+    'crispy_forms',
+
+    # django-autocomplete-light插件app
+    'dal',
+    'dal_select2',
+
+    # django-ckeditor富文本编辑器插件app
+    'ckeditor',
+
+    # django-rest-framework插件app
+    'rest_framework',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,6 +57,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'blog.middleware.user_id.UserMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,11 +69,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'typeidea.urls'
 
+# 默认目录
+# HTEME = 'default'
+HTEME = 'bootstrap'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': ['typeidea/themes/default/templates/'], 一切要用代码驱动，不要写内容
+        'DIRS': [os.path.join(BASE_DIR, 'themes', HTEME, 'templates')],
+        # 'DIRS': [],
         'APP_DIRS': True,
+        # 'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -107,4 +130,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = '/tmp/static'
+
 STATIC_URL = '/static/'
+
+THEME = 'bootstrap'
+# THEME = 'default'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'themes', THEME, 'static')
+]
+
+XADMIN_TITLE = 'Typeidea后台管理'
+XADMIN_FOOTER_TITLE = 'power by mistacker.com'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': 800,
+        'tabSpaces': 4,
+        'extraPlugins': 'codesnippet',  # 配置代码插件
+    }
+}
+
+# 分页
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 2,
+}

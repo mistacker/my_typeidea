@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Typeidea Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.css">
+    <style>
+        .post {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container head">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">首页</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a href="#" class="nav-link">Python</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Django</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Tornado</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4">Typeidea</h1>
+        <p class="lead">基于Django的多人博客系统</p>
+    </div>
+</div>
+<div class="container main">
+    <div class="row">
+        <div class="col-9 post-list">
+            <div class="card post">
+                <div class="carf-body">
+                    <h5 class="card-title"><a href="#">这里是标题</a></h5>
+                    <span class="card-link">作者: <a href="#">胡杨</a></span>
+                    <span class="card-link">分类: <a href="#">Python</a></span>
+                    <span class="card-link">标签: <a href="#">python</a><a href="#">DJango</a><a href="#">经验</a></span>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk if the
+                        card's content <a href="#">完整内容</a></p>
+                </div>
+            </div>
+            <div class="card post">
+                <div class="carf-body">
+                    <h5 class="card-title"><a href="#">这里是标题</a></h5>
+                    <span class="card-link">作者: <a href="#">胡杨</a></span>
+                    <span class="card-link">分类: <a href="#">Python</a></span>
+                    <span class="card-link">标签: <a href="#">python</a><a href="#">DJango</a><a href="#">经验</a></span>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk if the
+                        card's content <a href="#">完整内容</a></p>
+                </div>
+            </div>
+            <div class="card post">
+                <div class="carf-body">
+                    <h5 class="card-title"><a href="#">这里是标题</a></h5>
+                    <span class="card-link">作者: <a href="#">胡杨</a></span>
+                    <span class="card-link">分类: <a href="#">Python</a></span>
+                    <span class="card-link">标签: <a href="#">python</a><a href="#">DJango</a><a href="#">经验</a></span>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk if the
+                        card's content <a href="#">完整内容</a></p>
+                </div>
+            </div>
+            <a href="?page={{ page_obj.previous_page_number }}">上一页</a>
+            Page 1 of 1.
+            <a href="?page={{ page_obj.next_page_number }}">下一页</a>
+        </div>
+        <div class="col-3">
+            <div class="card sidebar">
+                <div class="card-body">
+                    <h4 class="card-title">关于博主</h4>
+                    <p>网名: mistacker, 多年Python工程师</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <hr/>
+                <nav class="nav category">
+                    <a href="#" class="nav-link">读书</a><a href="#" class="nav-link">产品</a>
+                    <a href="#" class="nav-link">工作经历</a>
+                </nav>
+            </div>
+            <div class="container power">
+                <span class="text-muted">Power by Typrifrs@wbc</span>
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+</html>

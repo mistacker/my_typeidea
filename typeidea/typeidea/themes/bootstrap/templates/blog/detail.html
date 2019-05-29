@@ -1,0 +1,33 @@
+{% extends "./base.html" %}
+{% load comment_block %}
+
+{% block title %}
+{% if post %}
+<h1>{{ post.title }}</h1>
+{% endif %}
+{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/googlecode.min.css">
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
+
+
+{% block main %}
+<div class="col-9 post-list">
+    <span>作者: {{ post.owner.username }}</span>
+    <span>分类:{{ post.category.name }}</span>
+    <p></p>
+    <p>
+    <div class="card post">
+        <div class="carf-body">
+            {{ post.content_html|safe|default:post.content }}
+        </div>
+    </div>
+    </p>
+    <hr/>
+    {% comment_block request.path %}
+</div>
+
+{% endblock %}
